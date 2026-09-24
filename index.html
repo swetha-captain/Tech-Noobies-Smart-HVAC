@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart HVAC Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div>
+            <h1>SMART HVAC</h1>
+            <p>Real-Time Room & Weather Monitoring</p>
+        </div>
+
+        <div class="connection">
+            <span id="connectionDot"></span>
+            <span id="connectionText">Connecting...</span>
+        </div>
+
+    </header>
+
+
+    <!-- ROOM ENVIRONMENT -->
+    <section class="section">
+
+        <h2>Room Environment</h2>
+
+        <div class="room-grid">
+
+            <!-- TEMPERATURE -->
+            <div class="card temperature-card">
+
+                <h3>Room Temperature</h3>
+
+                <div class="gauge">
+
+                    <div class="gauge-inner">
+
+                        <div id="roomTemperature"
+                             class="temperature-value">
+                            --°C
+                        </div>
+
+                        <div class="gauge-label">
+                            DHT22
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="gauge-scale">
+                    <span>16°C</span>
+                    <span>40°C</span>
+                </div>
+
+            </div>
+
+
+            <!-- HUMIDITY -->
+            <div class="card">
+
+                <h3>Room Humidity</h3>
+
+                <div id="roomHumidity"
+                     class="big-value">
+                    --%
+                </div>
+
+                <p class="small-text">
+                    DHT22 Sensor
+                </p>
+
+            </div>
+
+
+            <!-- PEOPLE -->
+            <div class="card">
+
+                <h3>People in Room</h3>
+
+                <div id="peopleCount"
+                     class="big-value">
+                    --
+                </div>
+
+                <p class="small-text">
+                    Occupancy
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OUTSIDE WEATHER -->
+    <section class="section">
+
+        <h2>Outside Weather</h2>
+
+        <div class="weather-container">
+
+
+            <!-- CURRENT WEATHER -->
+            <div class="card current-weather">
+
+                <p class="weather-label">
+                    CURRENT WEATHER
+                </p>
+
+                <div id="weatherIcon"
+                     class="weather-icon">
+                    🌤️
+                </div>
+
+                <div id="weatherCondition"
+                     class="weather-condition">
+                    --
+                </div>
+
+                <div id="outsideTemperature"
+                     class="outside-temperature">
+                    --°C
+                </div>
+
+                <div id="outsideHumidity"
+                     class="weather-humidity">
+                    Humidity: --%
+                </div>
+
+            </div>
+
+
+            <!-- FORECAST -->
+            <div class="card forecast-card">
+
+                <div class="forecast-header">
+
+                    <h3>Next 6 Hours</h3>
+
+                    <span id="weatherUpdated">
+                        --
+                    </span>
+
+                </div>
+
+                <div id="forecast"
+                     class="forecast">
+
+                    <div class="forecast-empty">
+                        Waiting for weather data...
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HVAC STATUS -->
+    <section class="section">
+
+        <h2>HVAC Status</h2>
+
+        <div class="hvac-grid">
+
+            <div class="card">
+
+                <h3>Mode</h3>
+
+                <div id="hvacMode"
+                     class="status-value">
+                    --
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Setpoint</h3>
+
+                <div id="setpoint"
+                     class="status-value">
+                    --°C
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Cooling Level</h3>
+
+                <div id="coolingLevel"
+                     class="status-value">
+                    --%
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <span>
+            Smart HVAC • MQTT • HiveMQ
+        </span>
+
+        <span id="lastUpdate">
+            Last update: --
+        </span>
+
+    </footer>
+
+</div>
+
+
+<!-- MQTT.JS -->
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
+<!-- DASHBOARD JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
